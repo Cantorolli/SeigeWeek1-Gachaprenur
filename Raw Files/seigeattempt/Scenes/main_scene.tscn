@@ -1,0 +1,362 @@
+[gd_scene load_steps=4 format=3 uid="uid://djhc253et1vre"]
+
+[ext_resource type="Script" uid="uid://wl26nw1tdi0c" path="res://Scenes/GameScript.gd" id="1_52fb6"]
+[ext_resource type="Texture2D" uid="uid://c31h023jtk1yq" path="res://GeneralAssets/Gashapon.png" id="2_6l7je"]
+[ext_resource type="Texture2D" uid="uid://cyepr7irh8bre" path="res://CharacterImages/ND.png" id="3_jv6wh"]
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_52fb6")
+
+[node name="BGSplit" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="gashaback" type="ColorRect" parent="BGSplit"]
+custom_minimum_size = Vector2(381, 0)
+layout_mode = 2
+color = Color(0.562958, 0.562958, 0.562958, 1)
+
+[node name="ColorRect" type="ColorRect" parent="BGSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.440002, 0.695295, 0.584129, 1)
+
+[node name="MainSplit" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gashapon" type="TextureRect" parent="MainSplit"]
+texture_filter = 1
+custom_minimum_size = Vector2(381, 0)
+layout_mode = 2
+texture = ExtResource("2_6l7je")
+stretch_mode = 5
+
+[node name="GashaMenu" type="VBoxContainer" parent="MainSplit"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainSplit/GashaMenu"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+
+[node name="DrawQ" type="Button" parent="MainSplit/GashaMenu/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Draw? 
+($1)"
+
+[node name="RightMenu" type="VBoxContainer" parent="MainSplit"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="MainSplit/RightMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MoneyInformant" type="RichTextLabel" parent="MainSplit/RightMenu/Buttons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 25
+text = "Current Funds: $10
+Bag Capacity: 0/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="commonsell" type="Button" parent="MainSplit/RightMenu/Buttons"]
+layout_mode = 2
+text = "SELL ALL COMMONS"
+
+[node name="uncommonsell" type="Button" parent="MainSplit/RightMenu/Buttons"]
+layout_mode = 2
+text = "SELL ALL UNCOMMONS"
+
+[node name="raresell" type="Button" parent="MainSplit/RightMenu/Buttons"]
+layout_mode = 2
+text = "SELL ALL RARES"
+
+[node name="epicsell" type="Button" parent="MainSplit/RightMenu/Buttons"]
+layout_mode = 2
+text = "SELL ALL EPICS"
+
+[node name="FileFunctions" type="HBoxContainer" parent="MainSplit/RightMenu/Buttons"]
+layout_mode = 2
+
+[node name="Saver" type="Button" parent="MainSplit/RightMenu/Buttons/FileFunctions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SAVE GAME"
+
+[node name="Reset" type="Button" parent="MainSplit/RightMenu/Buttons/FileFunctions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset Game"
+
+[node name="Info" type="RichTextLabel" parent="MainSplit/RightMenu"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Current Inventory Worth: $0
+Current Pinned Worth: $0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tips" type="RichTextLabel" parent="MainSplit/RightMenu"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Click to Sell a figure! Right Click to lock it!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scroller" type="ScrollContainer" parent="MainSplit/RightMenu"]
+custom_minimum_size = Vector2(0, 314)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Inv" type="VBoxContainer" parent="MainSplit/RightMenu/Scroller"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharEmmitter" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(110, 572)
+emitting = false
+amount = 1
+texture = ExtResource("3_jv6wh")
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.4
+direction = Vector2(0, -1)
+spread = 20.0
+initial_velocity_min = 320.0
+initial_velocity_max = 373.74
+angular_velocity_min = -40.0
+angular_velocity_max = 40.0
+angle_min = -20.0
+angle_max = 20.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+
+[node name="broke" type="Popup" parent="."]
+title = "info"
+initial_position = 1
+size = Vector2i(300, 100)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="broke"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "You're out of cash! 
+Try selling something."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="broke"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 1, 1, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="Confirmmenu" type="Popup" parent="."]
+initial_position = 2
+size = Vector2i(400, 200)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Confirmmenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 1, 1, 1)
+border_width = 10.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Confirmmenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Info" type="VBoxContainer" parent="Confirmmenu/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Confirmmenu/MarginContainer/Info"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "\"Epic\" figures are quite hard to get, are you sure you want to sell ALL \"Epic\" rarity figures?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Confirmmenu/MarginContainer/Info"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Yeah" type="Button" parent="Confirmmenu/MarginContainer/Info/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "I'm Sure"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Confirmmenu/MarginContainer/Info/HBoxContainer/Yeah"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+border_color = Color(1, 1, 1, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="Nah" type="Button" parent="Confirmmenu/MarginContainer/Info/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nevermind"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Confirmmenu/MarginContainer/Info/HBoxContainer/Nah"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+border_color = Color(1, 1, 1, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="ResetConfirm" type="Popup" parent="."]
+auto_translate_mode = 1
+initial_position = 2
+size = Vector2i(400, 200)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ResetConfirm"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 1, 1, 1)
+border_width = 10.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ResetConfirm"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Info" type="VBoxContainer" parent="ResetConfirm/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResetConfirm/MarginContainer/Info"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resetting is PERMANENT, there is no rebirth system."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResetConfirm/MarginContainer/Info"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="YeahDel" type="Button" parent="ResetConfirm/MarginContainer/Info/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "I'm Sure"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ResetConfirm/MarginContainer/Info/HBoxContainer/YeahDel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+border_color = Color(1, 1, 1, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="NahDel" type="Button" parent="ResetConfirm/MarginContainer/Info/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nevermind"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ResetConfirm/MarginContainer/Info/HBoxContainer/NahDel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+border_color = Color(1, 1, 1, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="LegendaryLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 302.0
+offset_top = 140.0
+offset_right = 850.0
+offset_bottom = 209.0
+theme_override_constants/outline_size = 13
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[color=orange][pulse color = #ffffffff][wave]LEGENDARY FOUND!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MainSplit/GashaMenu/MarginContainer/DrawQ" to="." method="_on_draw_q_pressed"]
+[connection signal="pressed" from="MainSplit/RightMenu/Buttons/commonsell" to="." method="_on_commonsell_pressed"]
+[connection signal="pressed" from="MainSplit/RightMenu/Buttons/uncommonsell" to="." method="_on_uncommonsell_pressed"]
+[connection signal="pressed" from="MainSplit/RightMenu/Buttons/raresell" to="." method="_on_raresell_pressed"]
+[connection signal="pressed" from="MainSplit/RightMenu/Buttons/epicsell" to="." method="_on_epicsell_pressed"]
+[connection signal="pressed" from="MainSplit/RightMenu/Buttons/FileFunctions/Saver" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainSplit/RightMenu/Buttons/FileFunctions/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Confirmmenu/MarginContainer/Info/HBoxContainer/Yeah" to="." method="_on_yeah_pressed"]
+[connection signal="pressed" from="Confirmmenu/MarginContainer/Info/HBoxContainer/Nah" to="." method="_on_nah_pressed"]
+[connection signal="pressed" from="ResetConfirm/MarginContainer/Info/HBoxContainer/YeahDel" to="." method="_on_yeah_del_pressed"]
+[connection signal="pressed" from="ResetConfirm/MarginContainer/Info/HBoxContainer/NahDel" to="." method="_on_nah_del_pressed"]

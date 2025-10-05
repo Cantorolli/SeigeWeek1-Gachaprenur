@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5xruaj4mwcec"]
+
+[ext_resource type="Script" uid="uid://y4xatcpwseh7" path="res://Scenes/InvBox.gd" id="1_ows8p"]
+[ext_resource type="Texture2D" uid="uid://cyepr7irh8bre" path="res://CharacterImages/ND.png" id="2_iyev4"]
+
+[node name="Control" type="PanelContainer"]
+offset_right = 265.0
+offset_bottom = 64.0
+script = ExtResource("1_ows8p")
+charname = "Druid Gal"
+rarity = "Legendary"
+img = "uid://cyepr7irh8bre"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="littleguy" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_iyev4")
+stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Druid Gal - Rare"
+vertical_alignment = 1
+
+[node name="PinStat" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 2
+border_color = Color(1, 1, 1, 0)
+border_width = 3.0
+editor_only = false
+
+[connection signal="mouse_entered" from="ReferenceRect" to="." method="_on_reference_rect_mouse_entered"]
+[connection signal="mouse_exited" from="ReferenceRect" to="." method="_on_reference_rect_mouse_exited"]

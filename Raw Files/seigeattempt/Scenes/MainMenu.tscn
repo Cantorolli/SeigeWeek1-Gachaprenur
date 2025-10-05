@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmr3vk8uwp0cv"]
+
+[ext_resource type="Script" uid="uid://c6ldb2cacwwgg" path="res://Scenes/main_menu_manager.gd" id="1_8saeu"]
+[ext_resource type="FontFile" uid="uid://b7p4bavvyii1g" path="res://GeneralAssets/Orbitron-VariableFont_wght.ttf" id="2_ghw46"]
+[ext_resource type="Texture2D" uid="uid://c31h023jtk1yq" path="res://GeneralAssets/Gashapon.png" id="3_df05h"]
+[ext_resource type="Texture2D" uid="uid://qpcu24kwrjtq" path="res://GeneralAssets/canto.png" id="3_ghw46"]
+
+[node name="Control" type="Node2D"]
+script = ExtResource("1_8saeu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.439216, 0.694118, 0.584314, 1)
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = 27.0
+offset_top = 43.0
+offset_right = 1113.0
+offset_bottom = 188.0
+theme_override_fonts/normal_font = ExtResource("2_ghw46")
+theme_override_font_sizes/normal_font_size = 80
+text = "GACHA-PRENUR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Credit" type="RichTextLabel" parent="Anchor"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 598.0
+offset_right = 1147.0
+offset_bottom = 642.0
+theme_override_font_sizes/normal_font_size = 23
+text = "Made By Cantorolli, Font: Orbitron from Google Fonts."
+
+[node name="Label" type="RichTextLabel" parent="Anchor"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 602.0
+offset_right = 610.0
+offset_bottom = 637.0
+text = "This menu exists to let the game load safely"
+
+[node name="Button" type="Button" parent="Anchor"]
+layout_mode = 0
+offset_left = 866.0
+offset_top = 517.0
+offset_right = 1087.0
+offset_bottom = 580.0
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="RatGirl" type="Sprite2D" parent="Anchor"]
+position = Vector2(931, 339)
+scale = Vector2(1.82812, 1.77344)
+texture = ExtResource("3_ghw46")
+
+[node name="Machine" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -660.0
+offset_right = 40.0
+offset_bottom = -620.0
+
+[node name="Sprite2D2" type="ColorRect" parent="Machine"]
+custom_minimum_size = Vector2(381, 0)
+layout_mode = 0
+offset_top = -4.0
+offset_right = 381.0
+offset_bottom = 652.0
+color = Color(0.564706, 0.564706, 0.564706, 1)
+
+[node name="Sprite2D" type="TextureRect" parent="Machine"]
+custom_minimum_size = Vector2(381, 0)
+layout_mode = 0
+offset_top = -4.0
+offset_right = 381.0
+offset_bottom = 652.0
+texture = ExtResource("3_df05h")
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="pressed" from="Anchor/Button" to="." method="_on_button_pressed"]

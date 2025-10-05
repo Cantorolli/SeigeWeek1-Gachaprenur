@@ -1,0 +1,28 @@
+{
+	"Common":{
+		"ND":["Normal Dude","ND.png",1],
+		"FD":["Fighter Dude","FD.png",1],
+		"MD":["Monk Dude","MD.png",1]
+	},
+	"Uncommon":{
+		"BG":["Barbarian Gal","BG.png",2],
+		"BD":["Bard Dude","BD.png",2],
+		"CG":["Cleric Gal","CG.png",2]
+	},
+	"Rare":{
+		"DG":["Druid Gal","DG.png",3],
+		"PD":["Paladin Dude","PD.png",3],
+		"SG":["Sorcerer Gal","SG.png",3]
+	},
+	"Epic":{
+		"RG":["Ranger Girl","RG.png",4],
+		"WG":["Warlock Gal","WG.png",4],
+		"WD":["Wizard Dude","WD.png",4]
+	},
+	"Legendary":{
+		"The Hero":["The Hero","TH.png",5],
+		"The Sage":["The Sage","TS.png",5],
+		"The Archer":["The Archer","TA.png",5],
+		"The Brute":["The Brute","TB.png",5]
+	}
+}
