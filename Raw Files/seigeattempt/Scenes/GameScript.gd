@@ -28,12 +28,12 @@ func _ready() -> void:
 				var newscene = charb.instantiate()
 				newscene.charname = i[0]
 				newscene.rarity = l
-				if FileAccess.file_exists(defaultpath % i[1]):
+				if ResourceLoader.exists(defaultpath % i[1]):
 					newscene.img = defaultpath % i[1]
-					char_emmitter.texture = load(defaultpath % i[1])
+					char_emmitter.texture = ResourceLoader.load(defaultpath % i[1])
 				else: 
 					newscene.img = defaultpath % "ND.png"
-					char_emmitter.texture = load(defaultpath % "ND.png")
+					char_emmitter.texture = ResourceLoader.load(defaultpath % "ND.png")
 				inv.add_child(newscene)
 				_updateworth()
 
@@ -42,12 +42,12 @@ func _ms_draw():
 	var heldindex = CLA._roll()
 	newscene.charname = heldindex[0]
 	newscene.rarity = heldindex[1]
-	if FileAccess.file_exists(defaultpath % heldindex[2]):
+	if ResourceLoader.exists(defaultpath % heldindex[2]):
 		newscene.img = defaultpath % heldindex[2]
-		char_emmitter.texture = load(defaultpath % heldindex[2])
+		char_emmitter.texture = ResourceLoader.load(defaultpath % heldindex[2])
 	else: 
 		newscene.img = defaultpath % "ND.png"
-		char_emmitter.texture = load(defaultpath % "ND.png")
+		char_emmitter.texture = ResourceLoader.load(defaultpath % "ND.png")
 	if newscene.rarity.casecmp_to("Legendary") == 0:
 		_legendarypulled()
 	inv.add_child(newscene)
