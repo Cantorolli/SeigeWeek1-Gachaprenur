@@ -1,7 +1,7 @@
 # SeigeWeek1-Gachaprenur
-Yet another game for Hackclub
+Yet another game for Hackclub, this time featuring a classic Gashapon Machine!
 
-This time featuring the classic Gashapon Machine
+Gachaprenur is a gacha game where you make money by selling your toy gachas and keep rolling on the machine until you make thousands!
 
 Features some basic mechanics plus new stuff I learned:
 - Save and autoload function!
